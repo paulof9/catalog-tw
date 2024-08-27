@@ -20,13 +20,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
-<body class="font-[Poppins] bg-gradient-to-t from-[#5b88a5] to-[#243a69] h-screen">
+<body class="font-[Poppins] bg-white h-screen">
     <header class="bg-[#243a69] py-2">
         <nav class="flex justify-between items-center mx-auto w-[90%]">
             <div class="">
                 <img class="w-44" src="/imagens/logo.png" alt="emforma-logo">
             </div>                                                           <!--tamanho janela mobile nav, a classe absolute permite o uso de left e top (que movem o nav-mobile para fora da tela)-->
-            <div class="nav-links duration-500 md:static absolute flex items-center px-5 bg-[#243a69] md:min-h-fit min-h-[30vh] left-0 top-[-100%] md:w-auto w-full"> <!--md=telas maiores-->
+            <div class="nav-links z-50 duration-500 md:static absolute flex items-center px-5 bg-[#243a69] md:min-h-fit min-h-[30vh] left-0 top-[-100%] md:w-auto w-full"> <!--md=telas maiores-->
                 <ul class="flex md:flex-row flex-col md:gap-[4vw] gap-6 items-center">
                     <li><a class="text-[#f4f4f2] hover:text-[#d4cdc5] text-lg font-bold" href="/index.html">Home</a></li>
                     <li><a class="text-[#f4f4f2] hover:text-[#d4cdc5] text-lg font-bold" href="/pages/produtos.html">Produtos</a></li>
@@ -40,7 +40,85 @@
             </div>
         </nav>
     </header>
+<section class="flex flex-col">
+<div class="flex flex-col container mx-auto h-44 w-[96%] mt-12 items-center">
+    <h1 class="flex justify-center text-black text-3xl font-bold">DÚVIDAS</h1>
+    <ion-icon class="text-6xl text-[#5b88a5] z-0" name="ellipsis-horizontal-outline"></ion-icon> <!--bolinhas <br>-->
+    <p>Informações e possíveis dúvidas:</p>
+</div>
 
-    <script src="script.js"></script>  
+<div class="grid md:grid-cols-2 md:gap-4 gap-2 md:w-[60%] w-[97%] mx-auto mb-2"> <!--conteiner grid-->
+    <div class="bg-[#f4f4f2] py-4 md:px-4 px-2 rounded-lg flex md:gap-6 gap-2 items-center"> <!--bloquinhos individuais-->
+        <div class="bg-[#5b88a5] py-4 px-4 rounded-full flex">
+            <ion-icon name="accessibility-outline" class="text-white font-bold text-5xl"></ion-icon>
+        </div>
+        <div>
+            <h1 class="font-bold text-[#243a69]">O que é a Emforma Sports?</h1>
+            <p>A Emforma Sports foi uma loja renomada de artigos esportivos em Piúma por 10 anos, oferecendo produtos de alta qualidade.</p>
+        </div>
+    </div>
+
+    <div class="bg-[#f4f4f2] py-4 md:px-4 px-2 rounded-lg flex md:gap-6 gap-2 items-center"> <!--bloquinhos individuais-->
+        <div class="bg-[#5b88a5] py-4 px-4 rounded-full flex">
+            <ion-icon name="help-outline" class="text-white font-bold text-5xl"></ion-icon>
+        </div>
+        <div>
+            <h1 class="font-bold text-[#243a69]">Por que a loja fechou?</h1>
+            <p>A loja encerrou devido a mudanças na carreira dos proprietários, mas ainda temos itens em estoque!</p>
+        </div>
+    </div>
+
+    <div class="bg-[#f4f4f2] py-4 md:px-4 px-2 rounded-lg flex md:gap-6 gap-2 items-center"> <!--bloquinhos individuais-->
+        <div class="bg-[#5b88a5] py-4 px-4 rounded-full flex">
+            <ion-icon name="flame-outline" class="text-white font-bold text-5xl"></ion-icon>
+        </div>
+        <div>
+            <h1 class="font-bold text-[#243a69]">O que acontece com os itens restantes?</h1>
+            <p>Estão à venda a preços de fábrica, com descontos incríveis!</p>
+        </div>
+    </div>
+
+    <div class="bg-[#f4f4f2] py-4 md:px-4 px-2 rounded-lg flex md:gap-6 gap-2 items-center"> <!--bloquinhos individuais-->
+        <div class="bg-[#5b88a5] py-4 px-4 rounded-full flex">
+            <ion-icon name="home-outline" class="text-white font-bold text-5xl"></ion-icon>
+        </div>
+        <div>
+            <h1 class="font-bold text-[#243a69]">Onde posso comprar os itens?</h1>
+            <p>Os itens estão disponíveis em Piúma e arredores, com opções de entrega local ou frete pelos Correios.</p>
+        </div>
+    </div>
+
+    <div class="bg-[#f4f4f2] py-4 md:px-4 px-2 rounded-lg flex md:gap-6 gap-2 items-center"> <!--bloquinhos individuais-->
+        <div class="bg-[#5b88a5] py-4 px-4 rounded-full flex">
+            <ion-icon name="wallet-outline" class="text-white font-bold text-5xl"></ion-icon>
+        </div>
+        <div>
+            <h1 class="font-bold text-[#243a69]">Quais métodos de pagamento são aceitos?</h1>
+            <p>Aceitamos:</p>
+            <ul class="list-disc list-inside">
+                <li>Cartão de Crédito/Débito</li>
+                <li>À Vista (Dinheiro)</li>
+                <li>PIX</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="bg-[#f4f4f2] py-4 md:px-4 px-2 rounded-lg flex md:gap-6 gap-2 items-center"> <!--bloquinhos individuais-->
+        <div class="bg-[#5b88a5] py-4 px-4 rounded-full flex">
+            <ion-icon name="call-outline" class="text-white font-bold text-5xl"></ion-icon>
+        </div>
+        <div>
+            <h1 class="font-bold text-[#243a69]">Como entrar em contato?</h1>
+            <p>Entre em contato através:</p>
+            <div class="flex flex-col my-1">
+                <ul class="flex justify-center flex-col text-lg">
+                    <li class="text-[#5b88a5] hover:text-[#243a69] flex items-center"><ion-icon name="logo-whatsapp" class="mx-2"></ion-icon><a href="">WhatsApp </a></li>
+                    <li class="text-[#5b88a5] hover:text-[#243a69] flex items-center"><ion-icon name="logo-instagram" class="mx-2"></ion-icon><a href="">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+</div>
+
+    <script src="/script.js"></script>  
 </body>
 </html>
