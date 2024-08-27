@@ -1,0 +1,1 @@
+O projeto tem o intuito de praticar TailwindCSS enquanto faço um catálogo real dos itens que sobraram de uma loja que já existiu de artigos esportivos.
