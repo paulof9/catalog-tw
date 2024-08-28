@@ -7,7 +7,7 @@ function onToggleMenu(e) {
 
 //lista de produtos
 const itens = [
-    { id: 0, nome: 'Squeeze Palmeiras 500ml', img: '/imagens/teste.jpg', desc: 'BLABALBLABLABLALBALA', quant: '01', valor: 'R$ 59,90' },
+    { id: 0, nome: 'Squeeze Palmeiras 500ml', img: './imagens/teste.jpg', desc: 'BLABALBLABLABLALBALA', quant: '01', valor: 'R$ 59,90' },
     { id: 1, nome: 'Caneca c/gel Palmeiras 400ml', img: '/imagens/teste.jpg', desc: 'Descrição do Produto 2', quant: '04', valor: 'R$ 49,90' },
     { id: 2, nome: 'Caneca c/gel "Eu curto meu irmão" 400ml', img: '/imagens/teste.jpg', desc: 'Descrição do Produto 2', quant: '01', valor: 'R$ 00,00' },
     { id: 3, nome: 'Caneca c/gel "Pedagogia"', img: '/imagens/teste.jpg', desc: 'Descrição do Produto 2', quant: '04', valor: 'R$ 00,00' },
