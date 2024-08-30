@@ -56,19 +56,20 @@ const itens = [
     { id: 46, nome: 'Sapatinho babylook vermelho', img: '/imagens/teste.jpg', desc: 'Descrição do Produto 2', quant: '02', valor: 'R$ 00,00' }
 ];
 
-function ordenarProdutosPorPreco(itens) {
-    return itens.slice().sort((a, b) => {
-        const precoA = parseFloat(a.valor.replace('R$', '').replace(',', '.'));
-        const precoB = parseFloat(b.valor.replace('R$', '').replace(',', '.'));
-        return precoB - precoA;
-    });
-}
-
+//index
 function inicializarProdutos() {
-    var cprodutos = document.getElementById('product-list');
-    const produtosOrdenados = ordenarProdutosPorPreco(itens);
+    const cprodutos = document.getElementById('product-list');
 
-    cprodutos.innerHTML = produtosOrdenados.map((val) => `
+    // Função para converter valores de string para números
+    function parseValue(value) {
+        return parseFloat(value.replace('R$ ', '').replace(',', '.'));
+    }
+
+    // Ordenar itens por valor em ordem decrescente
+    itens.sort((a, b) => parseValue(b.valor) - parseValue(a.valor));
+
+    // Adicionar produtos ao DOM
+    cprodutos.innerHTML = itens.map((val) => `
         <div class="bg-white rounded-lg md:p-6 p-4 flex flex-col drop-shadow-md">
             <div class="mx-auto relative bg-gradient-to-t from-[#d4cdc5] to-[#f4f4f2] mb-2 w-full h-48 p-2 rounded-lg"> 
                 <img src="${val.img}" class="mx-auto relative rounded-lg object-cover w-full h-full"></img>
@@ -80,49 +81,17 @@ function inicializarProdutos() {
     `).join('');
 }
 
-function filtrarProdutos(palavraChave) {
-    const cprodutos = document.getElementById('product-list');
-    const produtosFiltrados = itens.filter(val =>
-        val.nome.toLowerCase().includes(palavraChave.toLowerCase()) ||
-        val.desc.toLowerCase().includes(palavraChave.toLowerCase())
-    );
-
-    if (produtosFiltrados.length === 0) {
-        cprodutos.innerHTML = `
-            <div class="bg-white rounded-lg p-4 flex justify-center items-center h-fit">
-                <p class="text-gray-500">Nenhum resultado encontrado.</p>
-            </div>
-        `;
-    } else {
-        cprodutos.innerHTML = ordenarProdutosPorPreco(produtosFiltrados).map((val) => `
-            <div class="bg-white rounded-lg md:p-6 p-4 flex flex-col drop-shadow-md">
-                <div class="mx-auto relative bg-gradient-to-t from-[#d4cdc5] to-[#f4f4f2] mb-2 w-full h-48 p-2 rounded-lg"> 
-                    <img src="${val.img}" class="mx-auto relative rounded-lg object-cover w-full h-full"></img>
-                </div>
-                <h1 class="text-black-500 text-lg">${val.nome}</h1>
-                <h2 class="text-red-600 font-bold text-lg">${val.valor}</h2>
-                <a href="product.html?id=${val.id}" class="flex w-fit px-2 py-1 rounded-lg transition ease-in-out delay-120 bg-[#5b88a5] hover:bg-[#243a69] text-white duration-300">Ver Detalhes</a>
-            </div>
-        `).join('');
-    }
-}
-
-//campo de busca
-document.getElementById('search-input').addEventListener('input', (e) => {
-    filtrarProdutos(e.target.value);
-});
-
-
+//getID do produto
 function getProductIdFromUrl() {
     const params = new URLSearchParams(window.location.search);
     return params.get('id');
 }
 
-
+//product.html
 function inicializarProdutoEspecifico() {
-    const id = getProductIdFromUrl();
+    const id = getProductIdFromUrl(); // Pega o ID da URL
     if (id !== null) {
-        const produto = itens.find(item => item.id == id);
+        const produto = itens.find(item => item.id == id); // Encontra o produto pelo ID
         if (produto) {
             const cprodutos = document.getElementById('product-list');
             cprodutos.innerHTML = `
@@ -144,12 +113,12 @@ function inicializarProdutoEspecifico() {
     }
 }
 
-
+//dependencias
 if (document.getElementById('product-list')) {
     const page = window.location.pathname.split("/").pop();
     if (page === 'index.html' || page === '') {
-        inicializarProdutos();
+        inicializarProdutos(); //index.html
     } else if (page === 'product.html') {
-        inicializarProdutoEspecifico();
+        inicializarProdutoEspecifico(); //product.html
     }
 }
